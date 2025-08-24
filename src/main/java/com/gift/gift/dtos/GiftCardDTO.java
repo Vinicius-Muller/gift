@@ -12,10 +12,9 @@ public class GiftCardDTO {
     private String provider;
     private Double balance;
     private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public GiftCardDTO(UUID id, String name, String email, LocalDateTime createdAt, String provider, String code, Double balance) {}
-
-    public GiftCardDTO(UUID id, Double balance, String provider, String code, String name, String email, LocalDateTime createdAt) {
+    public GiftCardDTO(UUID id, String name, String email, String provider, String code, Double balance, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -23,6 +22,7 @@ public class GiftCardDTO {
         this.balance = balance;
         this.provider = provider;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public UUID getId() {
@@ -79,5 +79,13 @@ public class GiftCardDTO {
 
     public void setProvider(String provider) {
         this.provider = provider;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

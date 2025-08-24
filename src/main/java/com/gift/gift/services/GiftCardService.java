@@ -34,6 +34,9 @@ public class GiftCardService {
                 .map(existing -> {
                     existing.setName(updatedGiftCard.getName());
                     existing.setEmail(updatedGiftCard.getEmail());
+                    existing.setBalance(updatedGiftCard.getBalance());
+                    existing.setCode(updatedGiftCard.getCode());
+                    existing.setProvider(updatedGiftCard.getProvider());
                     return giftCardRepository.save(existing);
                 })
                 .orElseThrow(() -> new RuntimeException("GiftCard not found with id " + id));

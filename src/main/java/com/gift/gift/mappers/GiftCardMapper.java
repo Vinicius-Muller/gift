@@ -10,10 +10,11 @@ public class GiftCardMapper {
                 entity.getId(),
                 entity.getName(),
                 entity.getEmail(),
-                entity.getCreatedAt(),
                 entity.getProvider(),
                 entity.getCode(),
-                entity.getBalance()
+                entity.getBalance(),
+                entity.getCreatedAt(),
+                entity.getUpdatedAt()
         );
     }
 

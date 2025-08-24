@@ -41,7 +41,7 @@ public class GiftCardsController {
         return GiftCardMapper.toDTO(saved);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public GiftCardDTO updateGiftCard(@PathVariable UUID id, @RequestBody GiftCardDTO giftCardDTO) {
         GiftCard updated = giftCardService.updateGiftCard(id, GiftCardMapper.toEntity(giftCardDTO));
         return GiftCardMapper.toDTO(updated);
