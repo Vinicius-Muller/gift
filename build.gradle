@@ -30,11 +30,12 @@ dependencies {
 }
 
 flyway {
-	url = 'jdbc:postgresql://dpg-d2htf63uibrs73dl5d3g-a.oregon-postgres.render.com:5432/giftpg?sslmode=require'
-	user = 'postgres_user'
-	password = 'iK8SiOQuX0DoHDBWypC5szGASgYobxyL'
-	locations = ['filesystem:src/main/resources/db/migration']
+    url = System.getenv("DB_URL")
+    user = System.getenv("DB_USERNAME")
+    password = System.getenv("DB_PASSWORD")
+    locations = ['filesystem:src/main/resources/db/migration']
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()
