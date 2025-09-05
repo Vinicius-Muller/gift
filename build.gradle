@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.4'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.flywaydb.flyway' version '11.11.2'
 }
 
 group = 'com.gift'
@@ -20,10 +21,19 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.flywaydb:flyway-core:11.11.2'
+	implementation 'org.flywaydb:flyway-database-postgresql:11.11.2'
+	runtimeOnly 'org.postgresql:postgresql:42.7.3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    runtimeOnly 'org.postgresql:postgresql'
+}
+
+flyway {
+	url = 'jdbc:postgresql://dpg-d2htf63uibrs73dl5d3g-a.oregon-postgres.render.com:5432/giftpg?sslmode=require'
+	user = 'postgres_user'
+	password = 'iK8SiOQuX0DoHDBWypC5szGASgYobxyL'
+	locations = ['filesystem:src/main/resources/db/migration']
 }
 
 tasks.named('test') {
