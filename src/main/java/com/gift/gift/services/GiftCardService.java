@@ -2,6 +2,8 @@ package com.gift.gift.services;
 
 import com.gift.gift.entities.GiftCard;
 import com.gift.gift.repositories.GiftCardRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class GiftCardService {
         this.giftCardRepository = giftCardRepository;
     }
 
+    @Cacheable("gift_cards")
     public List<GiftCard> getAllGiftCards() {
         return giftCardRepository.findAll();
     }
@@ -25,10 +28,12 @@ public class GiftCardService {
         return giftCardRepository.findById(id);
     }
 
+    @CacheEvict(value = "gift_cards", allEntries = true)
     public GiftCard createGiftCard(GiftCard giftCard) {
         return giftCardRepository.save(giftCard);
     }
 
+    @CacheEvict(value = "gift_cards", allEntries = true)
     public GiftCard updateGiftCard(UUID id, GiftCard updatedGiftCard) {
         return giftCardRepository.findById(id)
                 .map(existing -> {
@@ -42,6 +47,7 @@ public class GiftCardService {
                 .orElseThrow(() -> new RuntimeException("GiftCard not found with id " + id));
     }
 
+    @CacheEvict(value = "gift_cards", allEntries = true)
     public void deleteGiftCard(UUID id) {
         giftCardRepository.deleteById(id);
     }
