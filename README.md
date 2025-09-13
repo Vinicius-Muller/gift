@@ -1,6 +1,6 @@
 # Gift Card API
 
-A **robust and consistent Gift Card API** built with Spring Boot, designed as a **monolithic application**. This API provides endpoints for managing gift cards, featuring database migrations and in-memory caching for high performance.  
+A **robust and consistent Gift Card API** built with Spring Boot, designed as a **monolithic application**. This API provides endpoints for managing gift cards, featuring database migrations, in-memory caching, and Kafka integration for event-driven communication.  
 
 ---
 
@@ -11,6 +11,7 @@ A **robust and consistent Gift Card API** built with Spring Boot, designed as a 
 - **Flyway Migrations** – reliable database version control.  
 - **Caffeine Cache** – in-memory caching for faster reads and reduced DB load.  
 - **PostgreSQL Support** – persistent relational database.  
+- **Kafka Integration** – event-driven messaging for async processes and notifications.  
 - **Consistent API** – designed for stability and predictable behavior.  
 
 ---
@@ -23,6 +24,7 @@ A **robust and consistent Gift Card API** built with Spring Boot, designed as a 
 | Database     | PostgreSQL |
 | Migration    | Flyway |
 | Cache        | Caffeine (in-memory) |
+| Messaging    | Apache Kafka |
 | Java Version | 17 |
 
 ---
